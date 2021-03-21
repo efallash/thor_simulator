@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!-- Adapted by: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+
+<!-- This xacro generates a Thor robot arm that can be duplicated by using a prefix -->
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:property name="damping" value="0.01" /> <!-- Joint Damping -->
+  <xacro:property name="effort_limit" value="10" />  <!-- Maximum Torque -->
+  <xacro:property name="velocity_limit" value="2" />  <!-- Maximum Joint Velocity -->
+
+
+  <!-- MAIN MACRO: Generates the URDF of the THOR Robot-->
+  <xacro:macro name="thor_robot" params="prefix">
+    <!-- Import Transmission xacro file-->
+    <xacro:include filename="$(find thor_description)/urdf/transmission.xacro"/>
+    <!-- Import gripper xacro file-->
+    <xacro:include filename="$(find gripper_description)/urdf/gripper.urdf.xacro"/>
+
+
+    <link
+      name="${prefix}base_link">
+       <inertial>
+        <origin
+          xyz="0.00056197 0.013471 0.041559"
+          rpy="0 0 0" />
+        <mass
+          value="1.0688" />
+        <inertia
+          ixx="0.0019613"
+          ixy="-4.7842E-05"
+          ixz="-6.271E-06"
+          iyy="0.0020501"
+          iyz="-5.642E-06"
+          izz="0.0035819" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/base_link.STL" />
+        </geometry>
+        <material
+          name="dirty_white">
+          <color
+            rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <link
+      name="${prefix}Art1_Link">
+      <inertial>
+        <origin
+          xyz="-1.3666E-06 0.00093142 0.099601"
+          rpy="0 0 0" />
+        <mass
+          value="2.4665" />
+        <inertia
+          ixx="0.0025936"
+          ixy="-4.8798E-08"
+          ixz="-5.6727E-08"
+          iyy="0.0025377"
+          iyz="8.201E-06"
+          izz="0.0032738" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art1_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0.058"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art1_Yaw"
+      type="revolute">
+      <origin
+        xyz="0 0 0.05"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}base_link" />
+      <child
+        link="${prefix}Art1_Link" />
+      <axis
+        xyz="0 0 1" />
+
+      <limit
+        lower="-2.094"
+        upper="2.094"
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+      <dynamics damping="${damping}"/>
+    </joint>
+    <link
+      name="${prefix}Art2_Link">
+      <inertial>
+        <origin
+          xyz="-1.353E-07 0.0049542 0.087169"
+          rpy="0 0 0" />
+        <mass
+          value="0.73847" />
+        <inertia
+          ixx="0.004243"
+          ixy="-2.7476E-09"
+          ixz="-7.4552E-07"
+          iyy="0.0050775"
+          iyz="-2.8558E-05"
+          izz="0.00099157" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art2_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art2_Pitch"
+      type="revolute">
+      <origin
+        xyz="0 0 0.16"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}Art1_Link" />
+      <child
+        link="${prefix}Art2_Link" />
+      <axis
+        xyz="0 1 0" />
+      <limit
+        lower="-0.5236"
+        upper="1.5708"
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+      <dynamics damping="${damping}"/>
+    </joint>
+    <link
+      name="${prefix}Art3_Link">
+      <inertial>
+        <origin
+          xyz="0.010261 0.0041361 0.0039446"
+          rpy="0 0 0" />
+        <mass
+          value="0.58805" />
+        <inertia
+          ixx="0.00099386"
+          ixy="1.5219E-07"
+          ixz="-1.0434E-06"
+          iyy="0.0010994"
+          iyz="7.4526E-07"
+          izz="0.00064781" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art3_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art3_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art3_Pitch"
+      type="revolute">
+      <origin
+        xyz="0 0 0.16"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}Art2_Link" />
+      <child
+        link="${prefix}Art3_Link" />
+      <axis
+        xyz="0 1 0" />
+      <limit
+        lower="-0.5236"
+        upper="1.5708"
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+      <dynamics damping="${damping}"/>
+    </joint>
+    <link
+      name="${prefix}Art4_Link">
+      <inertial>
+        <origin
+          xyz="-0.00039813 6.4745E-07 0.10813"
+          rpy="0 0 0" />
+        <mass
+          value="0.82094" />
+        <inertia
+          ixx="0.00090847"
+          ixy="1.0513E-08"
+          ixz="-2.3376E-07"
+          iyy="0.00092163"
+          iyz="1.2665E-09"
+          izz="0.00079862" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art4_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0.079"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art4_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art4_Yaw"
+      type="revolute">
+      <origin
+        xyz="0 0 0.0155"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}Art3_Link" />
+      <child
+        link="${prefix}Art4_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-1.5708"
+        upper="1.5708"
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+      <dynamics damping="${damping}"/>
+    </joint>
+    <link
+      name="${prefix}Art5_Link">
+      <inertial>
+        <origin
+          xyz="-4.0923E-08 -0.00012303 -0.0033641"
+          rpy="0 0 0" />
+        <mass
+          value="0.02825" />
+        <inertia
+          ixx="1.6947E-05"
+          ixy="-4.264E-12"
+          ixz="3.8862E-11"
+          iyy="3.744E-05"
+          iyz="1.0145E-08"
+          izz="2.3314E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art5_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art5_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art5_Pitch"
+      type="revolute">
+      <origin
+        xyz="0 0 0.1795"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}Art4_Link" />
+      <child
+        link="${prefix}Art5_Link" />
+      <axis
+        xyz="0 1 0" />
+      <limit
+        lower="-1.5708"
+        upper="1.5708"
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+      <dynamics damping="${damping}"/>
+    </joint>
+    <link
+      name="${prefix}Art6_Link">
+      <inertial>
+        <origin
+          xyz="3.1604E-09 2.9499E-09 -0.02836"
+          rpy="0 0 0" />
+        <mass
+          value="0.06043" />
+        <inertia
+          ixx="2.2364E-05"
+          ixy="1.996E-13"
+          ixz="5.6318E-14"
+          iyy="2.2364E-05"
+          iyz="2.6381E-12"
+          izz="2.5324E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/Art6_Link.STL" />
+        </geometry>
+        <material name="dirty_white"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://thor_description/meshes/simple/Art6_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="${prefix}Art6_Yaw"
+      type="continuous">
+      <origin
+        xyz="0 0 0.06715"
+        rpy="0 0 0" />
+      <parent
+        link="${prefix}Art5_Link" />
+      <child
+        link="${prefix}Art6_Link" />
+      <axis
+        xyz="0 0 1" />
+      <dynamics damping="${damping}"/>
+      <limit
+        effort="${effort_limit}"
+        velocity="${velocity_limit}" />
+    </joint>
+    
+    <!-- Import gripper from xacro file -->
+    <xacro:gripper prefix="${prefix}"/>
+    <joint name="${prefix}gripper_to_arm" type="fixed">
+      <parent link="${prefix}Art6_Link"/>
+      <child link="${prefix}gripper_base" />
+    </joint>
+
+
+
+    <!-- Set transmissions from xacro file -->
+    <xacro:thor_transmission prefix="${prefix}"/>
+
+  </xacro:macro>
+
+
+
+</robot>
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+
+<!-- This xacro configures gazebo properties to a simple parallel gripper-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="gazebo_config" params="prefix">
+    <xacro:property name="kp" value="1E12" /> <!-- Contact Stiffness -->
+    <xacro:property name="kd" value="1E9" /> <!-- Contact damping -->
+    <xacro:property name="mu" value="1E13" /> <!-- Friction Coefficient -->
+    <xacro:property name="max_contacts" value="1" /> <!-- Amount of contacts to a link -->
+
+    <gazebo reference="${prefix}rubber1">
+      <material>Gazebo/Black</material>
+      
+      <mu1 value="${mu}"/>
+	    <mu2 value="${mu}"/>
+	    <!--<kp value="${kp}" />
+	    <kd value="${kd}" />
+      <maxContacts value="${max_contacts}"/>-->
+    </gazebo>
+
+    <gazebo reference="${prefix}rubber2">
+      <material>Gazebo/Black</material>
+      
+      <mu1 value="${mu}"/>
+      <mu2 value="${mu}"/>
+      <!--<kp value="${kp}" />
+      <kd value="${kd}" />
+      <maxContacts value="${max_contacts}"/>-->
+    </gazebo>
+
+
+
+  </xacro:macro>
+
+</robot>

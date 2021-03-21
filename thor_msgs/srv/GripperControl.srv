@@ -1,0 +1,3 @@
+bool close #Request message: Boolean to close the gripper, open the gripper if false.
+---
+bool success #Response: True if an object is detected in the gripper

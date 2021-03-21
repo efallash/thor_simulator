@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+
+
+<!-- Transmissions are defined as PositionJointInterface. Change to EffortJointInterface for torque control in gazebo (PID tuning required) -->
+ 
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:macro name="gripper_transmission" params="prefix">
+    <transmission name="${prefix}finger1_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}finger1_prismatic">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}finger1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>  
+    <transmission name="${prefix}finger2_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}finger2_prismatic">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}finger2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>    
+  </xacro:macro>
+</robot>

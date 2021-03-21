@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+
+<!-- This xacro generates a standalone thor robot arm fixed to the world -->
+<robot name="thor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="prefix" default="thor_"/>
+
+
+
+  <!-- Load URDF XACRO -->
+  <xacro:include filename="$(find thor_description)/urdf/thor_description.urdf.xacro"/>
+  
+
+
+  <!-- Generate URDF macro-->
+  <xacro:macro name="generate_urdf" params="prefix">
+    <xacro:thor_robot prefix="${prefix}"/>
+    <!--xacro:thor_robot prefix="thor_"/-->
+    <link name="world" />
+    
+    <joint name="base_to_world" type="fixed">
+      <parent link="world"/>
+      <child link="${prefix}base_link"/>
+    </joint>
+
+  <!-- Gazebo -->
+    
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+    </gazebo>
+
+
+
+  </xacro:macro>
+  
+  <!--Runs the macro that generates the URDF -->
+  <xacro:generate_urdf prefix="$(arg prefix)"/>
+
+</robot>
