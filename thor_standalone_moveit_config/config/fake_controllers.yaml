@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - thor_Art1_Yaw
+      - thor_Art2_Pitch
+      - thor_Art3_Pitch
+      - thor_Art4_Yaw
+      - thor_Art5_Pitch
+      - thor_Art6_Yaw
+  - name: fake_gripper_controller
+    joints:
+      - thor_finger1_prismatic
+      - thor_finger2_prismatic
+initial:  # Define initial robot poses.
+  - group: arm
+    pose: Home
+  - group: gripper
+    pose: close

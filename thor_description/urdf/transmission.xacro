@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+
+
+<!-- Transmissions are defined as EffortJointInterface-->
+ 
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:macro name="thor_transmission" params="prefix">
+    <transmission name="${prefix}Art1_Yaw_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art1_Yaw">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art1_Yaw_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="${prefix}Art2_Pitch_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art2_Pitch">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art2_Pitch_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="${prefix}Art3_Pitch_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art3_Pitch">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art3_Pitch_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="${prefix}Art4_Yaw_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art4_Yaw">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art4_Yaw_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="${prefix}Art5_Pitch_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art5_Pitch">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art5_Pitch_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="${prefix}Art6_Yaw_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}Art6_Yaw">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}Art6_Yaw_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+  </xacro:macro>
+</robot>
