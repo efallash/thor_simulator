@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys, rospy, tf
 from gazebo_msgs.srv import *
 from geometry_msgs.msg import *
@@ -18,6 +18,6 @@ if __name__ == '__main__':
   with open("bar.sdf", "r") as f:
     bar_sdf = f.read()
 
-  print s("bar", bar_sdf, "", bar_pose, "world")
+  print(s("bar", bar_sdf, "", bar_pose, "world"))
 
   

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
@@ -22,7 +22,7 @@ pre_grasp = Pose(Point( 0.4, 0, 0.15), orient)
 grasp = Pose(Point( 0.45, 0, 0.15), orient)
 lift = Pose(Point( 0.45, 0, 0.3), orient)
 rotate = Pose(Point( 0.45, 0, 0.3), orient_rotated)
-place = Pose(Point( 0.45, 0, 0.15), orient)
+place = Pose(Point( 0.45, 0, 0.151), orient)
 
 
 

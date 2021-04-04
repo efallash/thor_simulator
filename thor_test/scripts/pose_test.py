@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
@@ -135,11 +135,12 @@ def pose_test():
         group.set_pose_target(target_pose)
         rospy.loginfo("Planing")
         plan=group.plan()
+
         #If planning was successfull, exectute trajectory
-        if plan.joint_trajectory.points:
+        if plan[0]: #modificada la funcion plan() en noetic
 
             rospy.loginfo("Executing Pose")
-            exec_success=group.execute(plan,wait=True)
+            exec_success=group.execute(plan[1],wait=True)
 
             #Called two times because of syncronization issues
             eff_pose=group.get_current_pose()

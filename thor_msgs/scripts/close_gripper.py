@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # This code has been adapted from the ROS Wiki ROS Service tutorials and the HRWROS MOOC
 # (http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29)
 

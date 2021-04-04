@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
