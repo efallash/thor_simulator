@@ -25,14 +25,14 @@
 
     <link name ='bar_link'>
       <inertial>
-        <mass value="0.15"/>
+        <mass value="0.5"/>
         <inertia
-          ixx="1.506666E-3"
+          ixx="3.766666E-3"
           ixy="0"
           ixz="0"
-          iyy="1.506666E-3"
+          iyy="3.766666E-3"
           iyz="0"
-          izz="1.333333E-5"/>
+          izz="3.333333E-5"/>
       </inertial>
       <collision name="collision">
         <geometry>

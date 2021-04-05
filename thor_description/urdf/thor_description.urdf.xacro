@@ -8,8 +8,8 @@
 
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
   <xacro:property name="damping" value="0.01" /> <!-- Joint Damping -->
-  <xacro:property name="effort_limit" value="10" />  <!-- Maximum Torque -->
-  <xacro:property name="velocity_limit" value="2" />  <!-- Maximum Joint Velocity -->
+  <xacro:property name="effort_limit" value="100" />  <!-- Maximum Torque -->
+  <xacro:property name="velocity_limit" value="10" />  <!-- Maximum Joint Velocity -->
 
 
   <!-- MAIN MACRO: Generates the URDF of the THOR Robot-->
