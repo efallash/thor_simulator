@@ -54,22 +54,7 @@ Articulación 6
 		Se realizó control PI, el comportamiento es bastante amortiguado entonces no se utiliza D
 		
 		Final P=100 I=10 i_clamp=10 ts=0.79s ess=0%
-		
-***************************************CONTROLADORES NUEVOS***************************************		
-    gains:
-      thor_Art1_Yaw: {p: 1000, i: 0, d: 5, i_clamp: 100}
-
-      thor_Art2_Pitch: {p: 2000, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
-
-      thor_Art3_Pitch: {p: 100, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
-
-      thor_Art4_Yaw: {p: 200, i: 1, d: 1, i_clamp: 1, antiwindup: true}
-
-      thor_Art5_Pitch: {p: 100, i: 1000, d: 1, i_clamp: 5, antiwindup: true}
-
-      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}		
-		
-		
+				
 ****************************************CONTROLADORES ANTERIORES**********************************
     gains:
       thor_Art1_Yaw: {p: 100, i: 1, d: 1, i_clamp: 100}

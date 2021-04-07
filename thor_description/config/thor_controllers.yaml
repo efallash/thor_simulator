@@ -41,9 +41,9 @@ arm_controller:
 
       thor_Art3_Pitch: {p: 100, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
 
-      thor_Art4_Yaw: {p: 200, i: 1, d: 1, i_clamp: 1, antiwindup: true}
+      thor_Art4_Yaw: {p: 200, i: 10, d: 1, i_clamp: 1, antiwindup: true}
 
-      thor_Art5_Pitch: {p: 100, i: 1000, d: 1, i_clamp: 5, antiwindup: true}
+      thor_Art5_Pitch: {p: 20, i: 10, d: 0, i_clamp: 5, antiwindup: true}
 
       thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}	
 

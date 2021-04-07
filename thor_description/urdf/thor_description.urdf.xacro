@@ -166,7 +166,7 @@
       <axis
         xyz="0 1 0" />
       <limit
-        lower="-0.5236"
+        lower="-1.5708"
         upper="1.5708"
         effort="${effort_limit}"
         velocity="${velocity_limit}" />
@@ -221,7 +221,7 @@
       <axis
         xyz="0 1 0" />
       <limit
-        lower="-0.5236"
+        lower="-1.5708"
         upper="1.5708"
         effort="${effort_limit}"
         velocity="${velocity_limit}" />
@@ -276,8 +276,8 @@
       <axis
         xyz="0 0 1" />
       <limit
-        lower="-1.5708"
-        upper="1.5708"
+        lower="-2.094"
+        upper="2.094"
         effort="${effort_limit}"
         velocity="${velocity_limit}" />
       <dynamics damping="${damping}"/>
