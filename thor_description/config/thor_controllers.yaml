@@ -35,17 +35,17 @@ arm_controller:
         trajectory: *trajectory_pos_constraint
 
     gains:
-      thor_Art1_Yaw: {p: 100, i: 1, d: 1, i_clamp: 100}
+      thor_Art1_Yaw: {p: 1000, i: 0, d: 5, i_clamp: 100}
 
-      thor_Art2_Pitch: {p: 300, i: 3.5, d: 1, i_clamp: 100}
+      thor_Art2_Pitch: {p: 2000, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
 
-      thor_Art3_Pitch: {p: 150, i: 1, d: 1, i_clamp: 100}
+      thor_Art3_Pitch: {p: 100, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
 
-      thor_Art4_Yaw: {p: 100, i: 1, d: 0, i_clamp: 1}
+      thor_Art4_Yaw: {p: 200, i: 1, d: 1, i_clamp: 1, antiwindup: true}
 
-      thor_Art5_Pitch: {p: 100, i: 1, d: 0, i_clamp: 100}
+      thor_Art5_Pitch: {p: 100, i: 1000, d: 1, i_clamp: 5, antiwindup: true}
 
-      thor_Art6_Yaw: {p: 10, i: 0.1, d: 0, i_clamp: 100}
+      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}	
 
 
 gripper_controller:

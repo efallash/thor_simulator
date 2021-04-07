@@ -1,0 +1,115 @@
+Calibracion PID Thor 04/04/21
+
+Se ajusta un controlador PD y se agrega I para compensación de gravedad
+Se utiliza thor con una carga de 0.5kg y alta inercia para calibrar
+
+
+ARTICULACION 1 
+	D=1.5 I=0:
+
+			P=0.5 ts=3.17
+			P=1 ts=3.11
+
+
+	D=1 I=0:
+
+			P=0.5 ts=2.8s overshoot
+			P=1 ts=2.8s SELECCIONADO
+			P=5 ts=3s
+			P=10 ts=3s
+			P=100 ts=3s
+
+
+	D=0.5 I=0:
+
+			P=0.5 ts=4s overshoot
+			P=1 ts=4s undershoot
+			P=5 ts=4.5 
+			
+	MODIFICADO POR UN CONTROL PD (P=1000 D=5 I=0 ts=1.76s M=0% ess=0%)
+			
+			
+			
+ARTICULACION 2 (Inicial ts=3.91s M=0.3% ess=0.15%)
+		Aumento de P hasta lograr alcanzar los estados pedidos, pero bajo para respuesta rápida
+		Aumento de D hasta lograr velocidad amortiguada
+		Aumento y ajustes de límites de I para eliminar ess
+		
+		(Final P=2000 I=1000 D=5 i_clamp=7 antiwindup=true ts=1.98s M=0% ess=0%)
+	
+	
+ARTICULACION 3 ()
+		Mismo metodo que articulacion 2
+		Final P=100 I=1000 D=5 i_clamp=7 antiwindup=true ts=1.772s M=0% ess=0%)
+
+ARTICULACION 4	
+		Mismo metodo que art1, se agrego termino integral para evitar error en cargas desbalanceadas.
+		Final P=200 i=1 d=1 i_clamp=1 antiwindup=true ts=1,75s M=0% ess=0%
+	
+Articulación 5
+		Mismo metodo que articulacion 2
+		Final P=100 I=1000 D=1 i_clamp=5 antiwindup=true ts=1,77s M=0% ess=0%)
+	
+Articulación 6
+		Se realizó control PI, el comportamiento es bastante amortiguado entonces no se utiliza D
+		
+		Final P=100 I=10 i_clamp=10 ts=0.79s ess=0%
+		
+***************************************CONTROLADORES NUEVOS***************************************		
+    gains:
+      thor_Art1_Yaw: {p: 1000, i: 0, d: 5, i_clamp: 100}
+
+      thor_Art2_Pitch: {p: 2000, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
+
+      thor_Art3_Pitch: {p: 100, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
+
+      thor_Art4_Yaw: {p: 200, i: 1, d: 1, i_clamp: 1, antiwindup: true}
+
+      thor_Art5_Pitch: {p: 100, i: 1000, d: 1, i_clamp: 5, antiwindup: true}
+
+      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}		
+		
+		
+****************************************CONTROLADORES ANTERIORES**********************************
+    gains:
+      thor_Art1_Yaw: {p: 100, i: 1, d: 1, i_clamp: 100}
+
+      thor_Art2_Pitch: {p: 300, i: 3.5, d: 1, i_clamp: 100}
+
+      thor_Art3_Pitch: {p: 150, i: 1, d: 1, i_clamp: 100}
+
+      thor_Art4_Yaw: {p: 100, i: 1, d: 0, i_clamp: 1}
+
+      thor_Art5_Pitch: {p: 100, i: 1, d: 0, i_clamp: 100}
+
+      thor_Art6_Yaw: {p: 10, i: 0.1, d: 0, i_clamp: 100}
+
+
+	
+*****************************************Prueba sin carga 07/04/21***************************************
+
+La articulacion 5 oscila significativamente
+
+Se modifico el termino i de la articulacion 4 a 10 para disminuir ess
+
+Se disminuyó la ganancia P de la articulacion 5 a 20 y la ganancia I a 10. y se eliminó el termino D para evitar oscilación
+
+
+***************************************CONTROLADORES Finales***************************************		
+    gains:
+      thor_Art1_Yaw: {p: 1000, i: 0, d: 5, i_clamp: 100}
+
+      thor_Art2_Pitch: {p: 2000, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
+
+      thor_Art3_Pitch: {p: 100, i: 1000, d: 5, i_clamp: 7, antiwindup: true}
+
+      thor_Art4_Yaw: {p: 200, i: 10, d: 1, i_clamp: 1, antiwindup: true}
+
+      thor_Art5_Pitch: {p: 20, i: 10, d: 0, i_clamp: 5, antiwindup: true}
+
+      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}		
+		
+
+		
+
+
