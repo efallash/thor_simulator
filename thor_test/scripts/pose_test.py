@@ -136,7 +136,7 @@ def pose_test():
         rospy.loginfo("Planing")
         plan=group.plan()
 
-        #If planning was successfull, exectute trajectory
+        #If planning was successful, execute trajectory
         if plan[0]: #modificada la funcion plan() en noetic
 
             rospy.loginfo("Executing Pose")
