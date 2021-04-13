@@ -111,8 +111,8 @@
         xyz="0 0 1" />
 
       <limit
-        lower="-2.094"
-        upper="2.094"
+        lower="-1.5708"
+        upper="1.5708"
         effort="${effort_limit}"
         velocity="${velocity_limit}" />
       <dynamics damping="${damping}"/>
