@@ -45,7 +45,7 @@ arm_controller:
 
       thor_Art5_Pitch: {p: 20, i: 10, d: 0, i_clamp: 5, antiwindup: true}
 
-      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}	
+      thor_Art6_Yaw: {p: 100, i: 10, d: 0, i_clamp: 10, antiwindup: true}
 
 
 gripper_controller:
