@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
 
-<!-- This xacro configures gazebo properties to a simple parallel gripper-->
+<!-- This xacro configures gazebo properties of a simple parallel gripper-->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="gazebo_config" params="prefix">

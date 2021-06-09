@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
-<!-- This xacro generates a simple parallel gripper fixed to the world -->
+
+<!-- This xacro generates a simple parallel gripper that has variable z position -->
 <robot name="thor" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default=""/>
 

@@ -2,7 +2,8 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<!-- Adapted by: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Modified by: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
 <!-- This xacro generates a Thor robot arm that can be duplicated by using a prefix -->
 
@@ -20,6 +21,7 @@
     <xacro:include filename="$(find gripper_description)/urdf/gripper.urdf.xacro"/>
 
 
+    <!-- ROBOT DESCRIPTION -->
     <link
       name="${prefix}base_link">
        <inertial>
@@ -85,7 +87,6 @@
             filename="package://thor_description/meshes/Art1_Link.STL" />
         </geometry>
         <material name="dirty_white"/>
-
       </visual>
       <collision>
         <origin

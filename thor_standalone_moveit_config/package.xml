@@ -3,12 +3,12 @@
   <name>thor_standalone_moveit_config</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the thor with the MoveIt! Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using the thor arm robot with the MoveIt! Motion Planning Framework
   </description>
   <author email="efallashdez@gmail.com">Emanuel Fallas Hernandez</author>
   <maintainer email="efallashdez@gmail.com">Emanuel Fallas Hernandez</maintainer>
 
-  <license>BSD</license>
+  <license>GPLv3</license>
 
   <url type="website">http://moveit.ros.org/</url>
   <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>

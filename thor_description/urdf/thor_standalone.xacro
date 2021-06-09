@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
 <!-- This xacro generates a standalone thor robot arm fixed to the world -->
 <robot name="thor" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default="thor_"/>
 
-
-
   <!-- Load URDF XACRO -->
   <xacro:include filename="$(find thor_description)/urdf/thor_description.urdf.xacro"/>
   
-
-
   <!-- Generate URDF macro-->
   <xacro:macro name="generate_urdf" params="prefix">
     <xacro:thor_robot prefix="${prefix}"/>
@@ -28,8 +25,6 @@
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
     </gazebo>
-
-
 
   </xacro:macro>
   

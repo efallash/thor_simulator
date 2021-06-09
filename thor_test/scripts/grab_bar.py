@@ -1,16 +1,32 @@
 #!/usr/bin/env python3
 
+#    grab_bar.py: Script to pick a bar, go home and place it in its original position.
+#    Copyright (C) 2021  Emanuel Fallas (efallashdez@gmail.com)
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
 from future import standard_library
 
+# ROS and standard imports
 import sys, rospy, tf, moveit_commander, random
 from geometry_msgs.msg import Pose, Point, Quaternion
 from math import pi
 
 from thor_msgs.srv import GripperControl, GripperControlRequest, GripperControlResponse 
 
-#Script to pick a bar, go home and place it in its original position.
+
 
 
 #End effector orientations
@@ -23,8 +39,6 @@ grasp = Pose(Point( 0.45, 0, 0.15), orient)
 lift = Pose(Point( 0.45, 0, 0.3), orient)
 rotate = Pose(Point( 0.45, 0, 0.3), orient_rotated)
 place = Pose(Point( 0.45, 0, 0.151), orient)
-
-
 
 
 #Start Moveit
@@ -76,7 +90,7 @@ rospy.loginfo("Opening Gripper")
 gripper_response=gripper(open_gripper)
 print(gripper_response.success)  
 
-# Rotation Sequence
+# Grab Sequence
 while not rospy.is_shutdown():
 
 

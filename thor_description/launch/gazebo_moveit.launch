@@ -1,3 +1,8 @@
+<!-- gazebo.launch: Spawns a Thor arm in gazebo and its moveit package-->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
+
 <launch>
   <!-- Gazebo Parameters -->
   <arg name="paused" default="false"/>

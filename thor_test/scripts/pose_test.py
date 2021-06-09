@@ -1,19 +1,35 @@
 #!/usr/bin/env python3
+#    pose_test.py: Script to test different poses for the end effector and record success (planning and execution) and accuracy
+#    Copyright (C) 2021  Emanuel Fallas (efallashdez@gmail.com)
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
 from future import standard_library
 
+#ROS and standard imports
 import sys, rospy, tf, moveit_commander, random
 import pandas as pd
 import numpy as np
 from geometry_msgs.msg import Pose, Point, Quaternion
 from math import pi
 
+#Thor messages imports
 from thor_msgs.srv import GripperControl, GripperControlRequest, GripperControlResponse 
 
-#Script to test different poses for the end effector and record success (planning and execution) and accuracy
 
+#MAIN SCRIPT
 def pose_test():
 
     #Start Moveit
@@ -42,16 +58,13 @@ def pose_test():
     group.set_planning_time(0.5) #Fast Timeout
     
     
-
-  
     #End effector orientations (RPY)
     orient_front = [pi, 0, 0]
     orient_down = [pi, pi/2, 0]
     orient_incline = [pi, pi/4, 0]
 
-   
 
-    #Bound of the experiment
+    #Bounds of the experiment
 
     #Tested Orientations
     #orientations=[orient_front, orient_down, orient_incline]
@@ -73,14 +86,9 @@ def pose_test():
     y_divide=3
     z_divide=3
 
-
-    
-
-
     #List of points
     x_points=np.linspace(x_min,x_max, num=x_divide)
 
-    
     y_points=np.linspace(y_min,y_max, num=y_divide)
     #Using only y=0
     #y_points=[0]
@@ -88,9 +96,6 @@ def pose_test():
     z_points=np.linspace(z_min,z_max, num=z_divide)
         
     poses=[]
-    
-    
-
      
     #Generate a list of all the poses of the experiment
     for x in x_points:
@@ -125,7 +130,6 @@ def pose_test():
                     #exec_success,reached_x,reached_y,reached_z,reached_R,reached_P,reached_Y]
     
 
-
     rospy.loginfo("Starting Experiment...")
     for i in poses:
         result=[]
@@ -155,8 +159,6 @@ def pose_test():
 
             result=[i[0],i[1],i[2],i[3], i[4], i[5],True,exec_success,eff_pos.x,eff_pos.y,eff_pos.z,eff_orient[0],eff_orient[1],eff_orient[2]]
             
-            
-
         else:
             rospy.loginfo("Failed Plan")
             result=[i[0],i[1],i[2],i[3], i[4], i[5],False,False,0,0,0,0,0,0]
@@ -172,19 +174,6 @@ def pose_test():
 
     results_df.to_csv('test.csv', index=False)
           
-
-    
-
-
-  
-        
-    
-
-
-    
-
-    
-    
 
     #Shut down moveit
     moveit_commander.roscpp_shutdown()

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
 <!-- This xacro generates a standalone thor robot arm fixed to the world, with a load fixed to its gripper-->
 <robot name="thor" xmlns:xacro="http://www.ros.org/wiki/xacro">

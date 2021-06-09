@@ -1,16 +1,31 @@
 #!/usr/bin/env python3
 
+#    grab_box.py: Script to pick a box, go to home position and place it in its original position
+#    Copyright (C) 2021  Emanuel Fallas (efallashdez@gmail.com)
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
 from future import standard_library
 
+#ROS and Standard imports
 import sys, rospy, tf, moveit_commander, random
 from geometry_msgs.msg import Pose, Point, Quaternion
 from math import pi
 
+#Thor messages imports
 from thor_msgs.srv import GripperControl, GripperControlRequest, GripperControlResponse 
-
-#Script to pick a box, go to home position and place it in its original position
 
 
 #End effector orientations
@@ -23,8 +38,6 @@ grasp = Pose(Point( 0.3, 0, 0.021), orient)
 pre_place = Pose(Point( 0.01, 0.25, 0.05), orient)
 #rotate = Pose(Point( 0.45, 0, 0.3), orient_rotated)
 place = Pose(Point( 0.01, 0.25, 0.021), orient)
-
-
 
 
 #Start Moveit
@@ -108,16 +121,11 @@ while not rospy.is_shutdown():
       print(gripper_response.success)
       rospy.sleep(1)    
 
-    
-      
-
     #Home
     if not rospy.is_shutdown():
       rospy.loginfo("Going Home")    
       group.set_named_target("Home")
       print(group.go(wait=True)) 
-
-
 
     #Pre Place Position
     if not rospy.is_shutdown():
@@ -125,22 +133,18 @@ while not rospy.is_shutdown():
       group.set_pose_target(pre_place)
       print(group.go(wait=True))
 
-
-   
     #Place Position
     if not rospy.is_shutdown():
       rospy.loginfo("Placing")
       group.set_pose_target(place)
       print(group.go(wait=True))
 
-    
     #Open Gripper
     if not rospy.is_shutdown():
       rospy.loginfo("Opening Gripper")
       gripper_response=gripper(open_gripper)
       print(gripper_response.success)  
       
-
     #Post Place Position
     if not rospy.is_shutdown():
       rospy.loginfo("Post Place")
@@ -156,7 +160,6 @@ rospy.loginfo("Going Home - Shutdown")
 group.set_named_target("Home")
 print(group.go(wait=True)) #Returns true if pose was achieved
 
-#group.set_named_target("Target") -> Para ir a posiciones predefinidas
 
-
+#Shutdown moveit
 moveit_commander.roscpp_shutdown()

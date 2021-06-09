@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
-
-<!-- Transmissions are defined as PositionJointInterface. Change to EffortJointInterface for torque control in gazebo (PID tuning required) -->
+<!-- Transmissions defined as  EffortJointInterface for torque control in gazebo (PID tuning required) -->
  
 
 <robot xmlns:xacro="http://wiki.ros.org/xacro">

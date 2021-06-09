@@ -1,3 +1,8 @@
+<!-- gazebo.launch: Launches test gripper in gazebo-->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
+
 <launch>
   <!-- Gazebo Parameters -->
   <arg name="paused" default="false"/>

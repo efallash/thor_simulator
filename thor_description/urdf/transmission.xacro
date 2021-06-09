@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Author: Emanuel Fallas Hernandez efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 
-
-<!-- Transmissions are defined as EffortJointInterface-->
+<!-- Transmissions are defined as EffortJointInterface for effort control in gazebo-->
  
 
 <robot xmlns:xacro="http://wiki.ros.org/xacro">

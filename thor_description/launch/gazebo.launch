@@ -1,4 +1,10 @@
+<!-- gazebo.launch: Spawns a controllable Thor arm in gazebo -->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
+
 <launch>
+
   <!-- Gazebo Parameters -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -38,8 +44,5 @@
   <!-- Spawn Controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
     args="joint_state_controller arm_controller gripper_controller"/>
-
   
-
-
 </launch>

@@ -1,3 +1,8 @@
+<!-- display.launch: Displays the gripper in rviz-->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
+
 <launch>
   <arg
     name="model" />

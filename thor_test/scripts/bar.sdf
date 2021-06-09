@@ -1,4 +1,8 @@
 <?xml version='1.0'?>
+<!-- bar.sdf: Model of a long and straight bar-->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 <sdf version ='1.4'>
   <model name ='bar'>
     <link name ='bar_link'>

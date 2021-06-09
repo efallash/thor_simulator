@@ -1,4 +1,8 @@
 <?xml version='1.0'?>
+<!-- box.sdf: Model of a small box-->
+<!-- Author: Emanuel Fallas -->
+<!-- email: efallashdez@gmail.com -->
+<!-- Published under GNU GPLv3 license -->
 <sdf version ='1.4'>
   <model name ='box'>
     <link name ='box_link'>
