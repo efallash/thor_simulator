@@ -51,5 +51,11 @@
   <node name="gripper_control_server" pkg="thor_msgs"
     type="close_gripper.py"/>
 
+  <!-- MoveIt Demo-->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find thor_description)/moveit.rviz" />
 
 </launch>
